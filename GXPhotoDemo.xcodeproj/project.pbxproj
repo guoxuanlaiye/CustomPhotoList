@@ -13,6 +13,25 @@
 		4DFAB83B1E4AA91A00C7BB3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAB8391E4AA91A00C7BB3A /* Main.storyboard */; };
 		4DFAB83D1E4AA91A00C7BB3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAB83C1E4AA91A00C7BB3A /* Assets.xcassets */; };
 		4DFAB8401E4AA91A00C7BB3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAB83E1E4AA91A00C7BB3A /* LaunchScreen.storyboard */; };
+		4DFAB85B1E4AA9D100C7BB3A /* GXPhotoAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB8491E4AA9D100C7BB3A /* GXPhotoAssetModel.m */; };
+		4DFAB85C1E4AA9D100C7BB3A /* GXPHKitTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB84C1E4AA9D100C7BB3A /* GXPHKitTool.m */; };
+		4DFAB85E1E4AA9D100C7BB3A /* AlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB8511E4AA9D100C7BB3A /* AlbumCollectionViewCell.m */; };
+		4DFAB85F1E4AA9D100C7BB3A /* AlbumDateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB8531E4AA9D100C7BB3A /* AlbumDateHeaderView.m */; };
+		4DFAB8601E4AA9D100C7BB3A /* AlbumNavTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB8551E4AA9D100C7BB3A /* AlbumNavTitleView.m */; };
+		4DFAB8611E4AA9D100C7BB3A /* AlbumSelectAssetGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB8571E4AA9D100C7BB3A /* AlbumSelectAssetGroupView.m */; };
+		4DFAB8621E4AA9D100C7BB3A /* AlbumSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB8591E4AA9D100C7BB3A /* AlbumSelectTableViewCell.m */; };
+		4DFAB8631E4AA9D100C7BB3A /* AlbumSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAB85A1E4AA9D100C7BB3A /* AlbumSelectTableViewCell.xib */; };
+		4DFAB86B1E4AC28B00C7BB3A /* CustomPhotoAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB8661E4AC28B00C7BB3A /* CustomPhotoAlbumViewController.m */; };
+		4DFAB86C1E4AC28B00C7BB3A /* LargePhotoPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB8681E4AC28B00C7BB3A /* LargePhotoPageViewController.m */; };
+		4DFAB86D1E4AC28B00C7BB3A /* LargePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB86A1E4AC28B00C7BB3A /* LargePhotoViewController.m */; };
+		4DFAB8711E4AE2FD00C7BB3A /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB8701E4AE2FD00C7BB3A /* UIView+Extension.m */; };
+		4DFAB8741E4AE52000C7BB3A /* NSObject+GXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAB8731E4AE52000C7BB3A /* NSObject+GXAlertView.m */; };
+		4DFAB8781E4AEC5B00C7BB3A /* xuanzhong_hui@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAB8761E4AEC5B00C7BB3A /* xuanzhong_hui@2x.png */; };
+		4DFAB8791E4AEC5B00C7BB3A /* xuanzhong_hui@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAB8771E4AEC5B00C7BB3A /* xuanzhong_hui@3x.png */; };
+		4DFAB87C1E4AEC6400C7BB3A /* xuanzhong_lv@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAB87A1E4AEC6400C7BB3A /* xuanzhong_lv@2x.png */; };
+		4DFAB87D1E4AEC6400C7BB3A /* xuanzhong_lv@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAB87B1E4AEC6400C7BB3A /* xuanzhong_lv@3x.png */; };
+		4DFAB8801E4AED8F00C7BB3A /* jiantou_xia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAB87E1E4AED8F00C7BB3A /* jiantou_xia@2x.png */; };
+		4DFAB8811E4AED8F00C7BB3A /* jiantou_xia@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAB87F1E4AED8F00C7BB3A /* jiantou_xia@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +45,37 @@
 		4DFAB83C1E4AA91A00C7BB3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DFAB83F1E4AA91A00C7BB3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DFAB8411E4AA91A00C7BB3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DFAB8481E4AA9D100C7BB3A /* GXPhotoAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXPhotoAssetModel.h; sourceTree = "<group>"; };
+		4DFAB8491E4AA9D100C7BB3A /* GXPhotoAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXPhotoAssetModel.m; sourceTree = "<group>"; };
+		4DFAB84B1E4AA9D100C7BB3A /* GXPHKitTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXPHKitTool.h; sourceTree = "<group>"; };
+		4DFAB84C1E4AA9D100C7BB3A /* GXPHKitTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXPHKitTool.m; sourceTree = "<group>"; };
+		4DFAB8501E4AA9D100C7BB3A /* AlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCollectionViewCell.h; sourceTree = "<group>"; };
+		4DFAB8511E4AA9D100C7BB3A /* AlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCollectionViewCell.m; sourceTree = "<group>"; };
+		4DFAB8521E4AA9D100C7BB3A /* AlbumDateHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumDateHeaderView.h; sourceTree = "<group>"; };
+		4DFAB8531E4AA9D100C7BB3A /* AlbumDateHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumDateHeaderView.m; sourceTree = "<group>"; };
+		4DFAB8541E4AA9D100C7BB3A /* AlbumNavTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumNavTitleView.h; sourceTree = "<group>"; };
+		4DFAB8551E4AA9D100C7BB3A /* AlbumNavTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumNavTitleView.m; sourceTree = "<group>"; };
+		4DFAB8561E4AA9D100C7BB3A /* AlbumSelectAssetGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumSelectAssetGroupView.h; sourceTree = "<group>"; };
+		4DFAB8571E4AA9D100C7BB3A /* AlbumSelectAssetGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumSelectAssetGroupView.m; sourceTree = "<group>"; };
+		4DFAB8581E4AA9D100C7BB3A /* AlbumSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumSelectTableViewCell.h; sourceTree = "<group>"; };
+		4DFAB8591E4AA9D100C7BB3A /* AlbumSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumSelectTableViewCell.m; sourceTree = "<group>"; };
+		4DFAB85A1E4AA9D100C7BB3A /* AlbumSelectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumSelectTableViewCell.xib; sourceTree = "<group>"; };
+		4DFAB8651E4AC28B00C7BB3A /* CustomPhotoAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPhotoAlbumViewController.h; sourceTree = "<group>"; };
+		4DFAB8661E4AC28B00C7BB3A /* CustomPhotoAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPhotoAlbumViewController.m; sourceTree = "<group>"; };
+		4DFAB8671E4AC28B00C7BB3A /* LargePhotoPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LargePhotoPageViewController.h; sourceTree = "<group>"; };
+		4DFAB8681E4AC28B00C7BB3A /* LargePhotoPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LargePhotoPageViewController.m; sourceTree = "<group>"; };
+		4DFAB8691E4AC28B00C7BB3A /* LargePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LargePhotoViewController.h; sourceTree = "<group>"; };
+		4DFAB86A1E4AC28B00C7BB3A /* LargePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LargePhotoViewController.m; sourceTree = "<group>"; };
+		4DFAB86F1E4AE2FD00C7BB3A /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		4DFAB8701E4AE2FD00C7BB3A /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		4DFAB8721E4AE52000C7BB3A /* NSObject+GXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GXAlertView.h"; sourceTree = "<group>"; };
+		4DFAB8731E4AE52000C7BB3A /* NSObject+GXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GXAlertView.m"; sourceTree = "<group>"; };
+		4DFAB8761E4AEC5B00C7BB3A /* xuanzhong_hui@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xuanzhong_hui@2x.png"; sourceTree = "<group>"; };
+		4DFAB8771E4AEC5B00C7BB3A /* xuanzhong_hui@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xuanzhong_hui@3x.png"; sourceTree = "<group>"; };
+		4DFAB87A1E4AEC6400C7BB3A /* xuanzhong_lv@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xuanzhong_lv@2x.png"; sourceTree = "<group>"; };
+		4DFAB87B1E4AEC6400C7BB3A /* xuanzhong_lv@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xuanzhong_lv@3x.png"; sourceTree = "<group>"; };
+		4DFAB87E1E4AED8F00C7BB3A /* jiantou_xia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jiantou_xia@2x.png"; sourceTree = "<group>"; };
+		4DFAB87F1E4AED8F00C7BB3A /* jiantou_xia@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jiantou_xia@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +108,12 @@
 		4DFAB82F1E4AA91A00C7BB3A /* GXPhotoDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4DFAB8751E4AEC5600C7BB3A /* resources */,
+				4DFAB86E1E4AE2E100C7BB3A /* Category */,
+				4DFAB8641E4AC28B00C7BB3A /* Controller */,
+				4DFAB8471E4AA9D100C7BB3A /* Model */,
+				4DFAB84A1E4AA9D100C7BB3A /* Tools */,
+				4DFAB84F1E4AA9D100C7BB3A /* View */,
 				4DFAB8331E4AA91A00C7BB3A /* AppDelegate.h */,
 				4DFAB8341E4AA91A00C7BB3A /* AppDelegate.m */,
 				4DFAB8361E4AA91A00C7BB3A /* ViewController.h */,
@@ -77,6 +133,79 @@
 				4DFAB8311E4AA91A00C7BB3A /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4DFAB8471E4AA9D100C7BB3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DFAB8481E4AA9D100C7BB3A /* GXPhotoAssetModel.h */,
+				4DFAB8491E4AA9D100C7BB3A /* GXPhotoAssetModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4DFAB84A1E4AA9D100C7BB3A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				4DFAB84B1E4AA9D100C7BB3A /* GXPHKitTool.h */,
+				4DFAB84C1E4AA9D100C7BB3A /* GXPHKitTool.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		4DFAB84F1E4AA9D100C7BB3A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4DFAB8501E4AA9D100C7BB3A /* AlbumCollectionViewCell.h */,
+				4DFAB8511E4AA9D100C7BB3A /* AlbumCollectionViewCell.m */,
+				4DFAB8521E4AA9D100C7BB3A /* AlbumDateHeaderView.h */,
+				4DFAB8531E4AA9D100C7BB3A /* AlbumDateHeaderView.m */,
+				4DFAB8541E4AA9D100C7BB3A /* AlbumNavTitleView.h */,
+				4DFAB8551E4AA9D100C7BB3A /* AlbumNavTitleView.m */,
+				4DFAB8561E4AA9D100C7BB3A /* AlbumSelectAssetGroupView.h */,
+				4DFAB8571E4AA9D100C7BB3A /* AlbumSelectAssetGroupView.m */,
+				4DFAB8581E4AA9D100C7BB3A /* AlbumSelectTableViewCell.h */,
+				4DFAB8591E4AA9D100C7BB3A /* AlbumSelectTableViewCell.m */,
+				4DFAB85A1E4AA9D100C7BB3A /* AlbumSelectTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4DFAB8641E4AC28B00C7BB3A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4DFAB8651E4AC28B00C7BB3A /* CustomPhotoAlbumViewController.h */,
+				4DFAB8661E4AC28B00C7BB3A /* CustomPhotoAlbumViewController.m */,
+				4DFAB8671E4AC28B00C7BB3A /* LargePhotoPageViewController.h */,
+				4DFAB8681E4AC28B00C7BB3A /* LargePhotoPageViewController.m */,
+				4DFAB8691E4AC28B00C7BB3A /* LargePhotoViewController.h */,
+				4DFAB86A1E4AC28B00C7BB3A /* LargePhotoViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4DFAB86E1E4AE2E100C7BB3A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4DFAB8721E4AE52000C7BB3A /* NSObject+GXAlertView.h */,
+				4DFAB8731E4AE52000C7BB3A /* NSObject+GXAlertView.m */,
+				4DFAB86F1E4AE2FD00C7BB3A /* UIView+Extension.h */,
+				4DFAB8701E4AE2FD00C7BB3A /* UIView+Extension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		4DFAB8751E4AEC5600C7BB3A /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				4DFAB87E1E4AED8F00C7BB3A /* jiantou_xia@2x.png */,
+				4DFAB87F1E4AED8F00C7BB3A /* jiantou_xia@3x.png */,
+				4DFAB87A1E4AEC6400C7BB3A /* xuanzhong_lv@2x.png */,
+				4DFAB87B1E4AEC6400C7BB3A /* xuanzhong_lv@3x.png */,
+				4DFAB8761E4AEC5B00C7BB3A /* xuanzhong_hui@2x.png */,
+				4DFAB8771E4AEC5B00C7BB3A /* xuanzhong_hui@3x.png */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +239,7 @@
 				TargetAttributes = {
 					4DFAB82C1E4AA91A00C7BB3A = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 2KMA9QPRA8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -138,8 +268,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DFAB8401E4AA91A00C7BB3A /* LaunchScreen.storyboard in Resources */,
+				4DFAB8811E4AED8F00C7BB3A /* jiantou_xia@3x.png in Resources */,
+				4DFAB8791E4AEC5B00C7BB3A /* xuanzhong_hui@3x.png in Resources */,
+				4DFAB8631E4AA9D100C7BB3A /* AlbumSelectTableViewCell.xib in Resources */,
+				4DFAB8781E4AEC5B00C7BB3A /* xuanzhong_hui@2x.png in Resources */,
+				4DFAB8801E4AED8F00C7BB3A /* jiantou_xia@2x.png in Resources */,
+				4DFAB87D1E4AEC6400C7BB3A /* xuanzhong_lv@3x.png in Resources */,
 				4DFAB83D1E4AA91A00C7BB3A /* Assets.xcassets in Resources */,
 				4DFAB83B1E4AA91A00C7BB3A /* Main.storyboard in Resources */,
+				4DFAB87C1E4AEC6400C7BB3A /* xuanzhong_lv@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,9 +287,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DFAB86B1E4AC28B00C7BB3A /* CustomPhotoAlbumViewController.m in Sources */,
+				4DFAB85B1E4AA9D100C7BB3A /* GXPhotoAssetModel.m in Sources */,
 				4DFAB8381E4AA91A00C7BB3A /* ViewController.m in Sources */,
+				4DFAB8621E4AA9D100C7BB3A /* AlbumSelectTableViewCell.m in Sources */,
+				4DFAB85F1E4AA9D100C7BB3A /* AlbumDateHeaderView.m in Sources */,
+				4DFAB86C1E4AC28B00C7BB3A /* LargePhotoPageViewController.m in Sources */,
 				4DFAB8351E4AA91A00C7BB3A /* AppDelegate.m in Sources */,
+				4DFAB8601E4AA9D100C7BB3A /* AlbumNavTitleView.m in Sources */,
+				4DFAB85E1E4AA9D100C7BB3A /* AlbumCollectionViewCell.m in Sources */,
+				4DFAB8611E4AA9D100C7BB3A /* AlbumSelectAssetGroupView.m in Sources */,
+				4DFAB8711E4AE2FD00C7BB3A /* UIView+Extension.m in Sources */,
+				4DFAB86D1E4AC28B00C7BB3A /* LargePhotoViewController.m in Sources */,
 				4DFAB8321E4AA91A00C7BB3A /* main.m in Sources */,
+				4DFAB8741E4AE52000C7BB3A /* NSObject+GXAlertView.m in Sources */,
+				4DFAB85C1E4AA9D100C7BB3A /* GXPHKitTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +419,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2KMA9QPRA8;
 				INFOPLIST_FILE = GXPhotoDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Guoxuan.GXPhotoDemo;
@@ -281,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2KMA9QPRA8;
 				INFOPLIST_FILE = GXPhotoDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Guoxuan.GXPhotoDemo;

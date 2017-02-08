@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CustomPhotoAlbumViewController.h"
 
 @interface ViewController ()
 
@@ -16,14 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    button.frame = CGRectMake(self.view.frame.size.width/2-40, 200, 80, 30);
+    [button setTitle:@"选择照片" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)btnClick
+{
+    CustomPhotoAlbumViewController * photoVC = [[CustomPhotoAlbumViewController alloc]init];
+    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:photoVC];
+    [self presentViewController:nav animated:YES completion:nil];
 }
-
-
 @end
