@@ -18,6 +18,10 @@
 @end
 
 @implementation AlbumCollectionViewCell
+- (void)dealloc
+{
+
+}
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self == [super initWithFrame:frame]) {
@@ -59,23 +63,21 @@
 {
     _assetModel = assetModel;
     
-        self.selectButton.hidden = NO;
-        CGSize imgSize = CGSizeMake(((SCREEN_W-5)/4)*2, ((SCREEN_W-5)/4)*2);
-        
-        PHImageRequestOptions * options = [[PHImageRequestOptions alloc]init];
-        options.resizeMode = PHImageRequestOptionsResizeModeExact;
-        
-        [[GXPHKitTool sharedPHKitTool].phManager requestImageForAsset:assetModel.asset
-                                                           targetSize:imgSize
-                                                          contentMode:PHImageContentModeAspectFill
-                                                              options:options
-                                                        resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-                                                            
-                                                            
-                                                            [self.photoButton setImage:result forState:UIControlStateNormal];
-                                                            
-                                                            
-                                                        }];
+    CGSize imgSize = CGSizeMake(((SCREEN_W-5)/4)*2, ((SCREEN_W-5)/4)*2);
+    
+    PHImageRequestOptions * options = [[PHImageRequestOptions alloc]init];
+    options.resizeMode = PHImageRequestOptionsResizeModeExact;
+    
+    [[GXPHKitTool sharedPHKitTool].phManager requestImageForAsset:assetModel.asset
+                                                       targetSize:imgSize
+                                                      contentMode:PHImageContentModeAspectFill
+                                                          options:options
+                                                    resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                                                        
+                                                        [self.photoButton setImage:result forState:UIControlStateNormal];
+                                                        
+                                                        
+                                                    }];
 
 }
 #pragma mark - 选择按钮被点击

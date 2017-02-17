@@ -21,6 +21,6 @@
 //当前全选按钮所在的section
 @property (nonatomic ,assign)NSInteger headerSection;
 //全选回调
-@property (nonatomic ,copy)void (^allSelectBlock)(NSInteger section,UIButton * isAllSelectBtn);
+@property (nonatomic ,strong)void (^allSelectBlock)(NSInteger section,UIButton * isAllSelectBtn);
 
 @end

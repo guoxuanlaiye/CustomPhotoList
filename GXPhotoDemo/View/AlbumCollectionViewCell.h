@@ -22,7 +22,4 @@
 //单个点击选择
 @property (nonatomic ,copy)void (^albumCellSelectBlock)(GXPhotoAssetModel * model,UIButton * isSelectBtn);
 
-//@property (nonatomic, assign) BOOL isCameraItem;
-
-
 @end

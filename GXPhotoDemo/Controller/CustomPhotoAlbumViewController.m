@@ -34,7 +34,10 @@
 @end
 
 @implementation CustomPhotoAlbumViewController
-
+- (void)dealloc
+{
+    NSLog(@"释放CustomPhotoAlbumViewController");
+}
 #pragma mark - lazy 头部选择相册组视图
 - (AlbumNavTitleView *)navTitleView
 {
@@ -56,17 +59,18 @@
     }
     return _navTitleView;
 }
+#pragma mark - lazy 选择相册薄
 - (AlbumSelectAssetGroupView *)selectGroupView
 {
     if (!_selectGroupView) {
         
         __weak typeof(self) weakSelf = self;
-        _selectGroupView = [[AlbumSelectAssetGroupView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_W, self.view.frame.size.height - 64)];
+        _selectGroupView = [[AlbumSelectAssetGroupView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_W, self.view.frame.size.height -64)];
         _selectGroupView.selectALGroupBlock = ^(PHAssetCollection * group,NSString * groupName) {
           
             NSLog(@" 开始读取 -------- 相簿 = %zd",groupName);
             dispatch_async(dispatch_get_main_queue(), ^{
-                
+            
                 weakSelf.navTitleView.detailLab.text = groupName;
                 [weakSelf.navTitleView rotationBack];
                 PHFetchResult * fetch = [[GXPHKitTool sharedPHKitTool] getFetchResult:group];
@@ -192,14 +196,14 @@
 #pragma mark - 首次进入加载相机胶卷照片资源
 - (void)loadLocalPhotoAlbumData
 {
-    
+    __weak typeof(self) weakSelf = self;
     [[GXPHKitTool sharedPHKitTool] getCameraRollAssetsWithResultBlock:^(PHAuthorizationStatus status,NSArray<GXPhotoAssetModel *> *imageArray) {
         
         if (imageArray.count > 0) {
-            [self setupPhotosDataWithArray:imageArray];
+            [weakSelf setupPhotosDataWithArray:imageArray];
         }
         if (status == PHAuthorizationStatusDenied) { //拒绝访问需弹窗提示用户
-            [self showAlertWithVC:self message:@"请在设备的“设置-隐私-照片”中允许访问照片。"];
+            [weakSelf showAlertWithVC:weakSelf message:@"请在设备的“设置-隐私-照片”中允许访问照片。"];
         }
     }];
 
@@ -207,46 +211,43 @@
 #pragma mark - 对照片进行日期分组
 - (void)setupPhotosDataWithArray:(NSArray <GXPhotoAssetModel*>* )imageArray
 {
-    
-    [self.photosDict      removeAllObjects];
-    [self.photosDateArray removeAllObjects];
-    
+    __weak typeof(self) weakSelf = self;
+
+    [weakSelf.photosDict      removeAllObjects];
+    [weakSelf.photosDateArray removeAllObjects];
+
     __block NSString * lastDateStr = @"";
     [imageArray enumerateObjectsUsingBlock:^(GXPhotoAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         if (idx == 0) {
             
             lastDateStr = obj.dateStr;
-            [self.photosDict setObject:[NSMutableArray arrayWithObjects:obj, nil] forKey:obj.dateStr];
+            [weakSelf.photosDict setObject:[NSMutableArray arrayWithObjects:obj, nil] forKey:obj.dateStr];
             
         } else {
             
             if ([obj.dateStr isEqualToString:lastDateStr]) {
                 
                 //把图片添加到字典中
-                
-                [self.photosDict[obj.dateStr] addObject:obj];
-                
+                [weakSelf.photosDict[obj.dateStr] addObject:obj];
             } else {
                 
                 lastDateStr = obj.dateStr;
-                [self.photosDict setObject:[NSMutableArray arrayWithObjects:obj, nil] forKey:obj.dateStr];
+                [weakSelf.photosDict setObject:[NSMutableArray arrayWithObjects:obj, nil] forKey:obj.dateStr];
             }
-
         }
-        
     }];
 
-    self.photosDateArray  = [NSMutableArray arrayWithArray:[self.photosDict allKeys]];
+    weakSelf.photosDateArray  = [NSMutableArray arrayWithArray:[weakSelf.photosDict allKeys]];
     
     //按日期排序
     NSArray * descriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:nil ascending:NO]];
     
-    NSArray * tmpArray    = [NSArray arrayWithArray:self.photosDateArray];
+    NSArray * tmpArray    = [NSArray arrayWithArray:weakSelf.photosDateArray];
     
-    self.photosDateArray  = [NSMutableArray arrayWithArray:[tmpArray sortedArrayUsingDescriptors:descriptors]];
+    weakSelf.photosDateArray  = [NSMutableArray arrayWithArray:[tmpArray sortedArrayUsingDescriptors:descriptors]];
     
-    [self.albumCollectionView reloadData];
+    [weakSelf.albumCollectionView reloadData];
 
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -286,18 +287,21 @@
         }];
         
     }
+    __weak typeof(self) weakSelf = self;
+    __weak typeof(collect)weakCell = collect;
     //单个添加已选的照片model
-    collect.albumCellSelectBlock = ^(GXPhotoAssetModel *model,UIButton * isSelectBtn) {
+    weakCell.albumCellSelectBlock = ^(GXPhotoAssetModel *model,UIButton * isSelectBtn) {
     
         if (isSelectBtn.selected == YES) {
-            [self.selectedImageArray addObject:model];
+            
+            [weakSelf.selectedImageArray addObject:model];
         } else {
             
-            [self.selectedImageArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [weakSelf.selectedImageArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 
                 GXPhotoAssetModel * m = (GXPhotoAssetModel*)obj;
                 if ([m.asset isEqual:model.asset]) {
-                    [self.selectedImageArray removeObject:m];
+                    [weakSelf.selectedImageArray removeObject:m];
                     *stop = YES;
                 }
                 
@@ -325,37 +329,38 @@
             //判断是否是全选的
             NSArray * sectionArray = [NSArray arrayWithArray:self.photosDict[self.photosDateArray[indexPath.section]]];
             __block NSInteger i = 0;
+            __weak typeof(self) weakSelf = self;
+
             [sectionArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                
                 GXPhotoAssetModel * sectionModel = (GXPhotoAssetModel *)obj;
                 
-                [self.selectedImageArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [weakSelf.selectedImageArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                     
                     GXPhotoAssetModel * objModel = (GXPhotoAssetModel *)obj;
                     if ([sectionModel.asset isEqual:objModel.asset]) {
                         i++;
                     }
-
                 }];
-                
             }];
             headerView.isAllSelect = i == sectionArray.count ? YES : NO;
-            
             
         } else {
             headerView.allSelectButton.hidden = YES;
         }
+        __weak typeof(self) weakSelf = self;
+        __weak typeof(headerView) weakHeader = headerView;
         //全选按钮被点击
-        headerView.allSelectBlock = ^(NSInteger section,UIButton * isAllSelectBtn) {
+        weakHeader.allSelectBlock = ^(NSInteger section,UIButton * isAllSelectBtn) {
             
-                NSArray * array = self.photosDict[self.photosDateArray[indexPath.section]];
+                NSArray * array = weakSelf.photosDict[weakSelf.photosDateArray[indexPath.section]];
                 
                 if (isAllSelectBtn.selected == YES) {
                     
                     for (GXPhotoAssetModel * model in array) {
                         
                         NSInteger i = 0;
-                        for (GXPhotoAssetModel * selectModel in self.selectedImageArray) {
+                        for (GXPhotoAssetModel * selectModel in weakSelf.selectedImageArray) {
                             
                             if ([model.asset isEqual:selectModel.asset]) {
                                 break;
@@ -363,21 +368,20 @@
                             i++;
                         }
                         
-                        if (i == self.selectedImageArray.count) {
+                        if (i == weakSelf.selectedImageArray.count) {
                             
                             //限制50张照片
-                            if (self.selectedImageArray.count <= 49) {
+                            if (weakSelf.selectedImageArray.count <= 49) {
                                 
                                 if (model.asset != nil) {
-                                    [self.selectedImageArray addObject:model];
+                                    [weakSelf.selectedImageArray addObject:model];
                                 }
                                 
                             } else {
                                 
-                                [self showAlertWithVC:self message:@"不能添加更多了哦亲~"];
+                                [weakSelf showAlertWithVC:weakSelf message:@"不能添加更多了哦亲~"];
                                 break;
                             }
-                            
                         }
                     }
                     
@@ -387,28 +391,22 @@
                         
                         GXPhotoAssetModel * model = (GXPhotoAssetModel *)obj;
                         
-                        [self.selectedImageArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        [weakSelf.selectedImageArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                             
                             GXPhotoAssetModel * objModel = (GXPhotoAssetModel *)obj;
                             
                             if ([model.asset isEqual:objModel.asset]) {
-                                [self.selectedImageArray removeObject:objModel];
+                                [weakSelf.selectedImageArray removeObject:objModel];
                                 *stop = YES;
                             }
-                            
                         }];
-                        
                     }];
-                    
                 }
 
             //全选需要刷新section
             [UIView performWithoutAnimation:^{
-            
                 [collectionView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section]];
-
             }];
-            
         };
         return headerView;
     } else {
@@ -441,7 +439,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    __weak typeof(self) weakSelf = self;
     LargePhotoPageViewController * largePageVC = [[LargePhotoPageViewController alloc]init];
     largePageVC.indexPath    = indexPath;
     largePageVC.allDateArray = self.photosDateArray;
@@ -449,15 +447,15 @@
     largePageVC.selectedImgArray = self.selectedImageArray;
     largePageVC.largePhotoBlock  = ^(NSMutableArray * largeArray) {
     
-        self.selectedImageArray  = [NSMutableArray arrayWithArray:largeArray];
+        weakSelf.selectedImageArray  = [NSMutableArray arrayWithArray:largeArray];
 
-        [self.albumCollectionView reloadData];
+        [weakSelf.albumCollectionView reloadData];
     };
     //浏览大图完成，开始写记忆
     largePageVC.largePhotoWriteBlock = ^{
     
-        NSLog(@"选照片结束------%@",self.selectedImageArray);
-        [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"选照片结束------%@",weakSelf.selectedImageArray);
+        [weakSelf dismissViewControllerAnimated:YES completion:^{
             
         }];
     };

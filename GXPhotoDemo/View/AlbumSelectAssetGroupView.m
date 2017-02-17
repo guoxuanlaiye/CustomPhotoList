@@ -13,7 +13,6 @@
 
 @property (nonatomic ,strong)UITableView * groupListView;
 @property (nonatomic ,copy)  NSArray <PHAssetCollection*>* groupsArray;
-@property (nonatomic ,strong)UIView * backgroundView;
 
 @end
 
@@ -35,6 +34,7 @@
         _groupListView.delegate        = self;
         _groupListView.dataSource      = self;
         _groupListView.tableFooterView = [[UIView alloc]init];
+        _groupListView.backgroundColor = [UIColor orangeColor];
         
     }
     return _groupListView;
@@ -78,31 +78,22 @@
     
     [self hideGroupListView];
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-       
-        self.selectALGroupBlock(phAsset,phAsset.localizedTitle);
-
-        
-    });
-    
+    self.selectALGroupBlock(phAsset,phAsset.localizedTitle);
 
 }
+//显示相簿组
 - (void)showGroupListView
 {
     UIWindow * window = [UIApplication sharedApplication].keyWindow;
-//    _backgroundView       = [[UIView alloc]initWithFrame:CGRectMake(0, 64, window.bounds.size.width, window.bounds.size.height-64)];
-//    _backgroundView.alpha = 0;
-//    _backgroundView.backgroundColor = [UIColor clearColor];
-//    _backgroundView.userInteractionEnabled = YES;
-//    [window addSubview:_backgroundView];
     
     self.frame = CGRectMake(0, window.bounds.size.height, window.bounds.size.width, window.bounds.size.height-64);
     
     [UIView animateWithDuration:0.3 animations:^{
        
-        self.frame = CGRectMake(0, 0, window.bounds.size.width, window.bounds.size.height-64);
+        self.frame = CGRectMake(0, 0, window.bounds.size.width, window.bounds.size.height);
     }];
 }
+//隐藏相簿组
 - (void)hideGroupListView
 {
     
@@ -114,7 +105,6 @@
 
     } completion:^(BOOL finished) {
         
-//        [self removeFromSuperview];
     }];
 }
 @end

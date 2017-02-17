@@ -59,7 +59,6 @@
 - (void)allSelectBtnClick:(UIButton *)button
 {
     button.selected = !button.selected;
-    
     _allSelectBlock(_headerSection,button);
 }
 @end
